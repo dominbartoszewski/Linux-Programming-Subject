@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while :
+do
+	kill -USR1 $1
+	sleep 0.025
+done

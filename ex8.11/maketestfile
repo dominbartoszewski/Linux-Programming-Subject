@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for x in {a..g} ; do
+	yes $x | tr -d '\n' | dd bs=512 count=1 
+done

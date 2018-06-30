@@ -1,0 +1,14 @@
+#!/bin/bash
+
+blocks=$(( $( ls -l /home/student/PwSL/ex8.11/ | grep "testfile.txt" | tr -s ' ' '\n' | head -5 | tail -1 )/512 ))
+echo $blocks
+
+while :
+do
+	for ((i=0;i<$blocks;i++))
+	do
+		dd bs=1 count=8 skip=$(( 512 - 8/2 + $i*512 )) status=none < testfile.txt
+		echo -e "\n"
+	done
+
+done
